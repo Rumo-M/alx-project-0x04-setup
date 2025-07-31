@@ -1,39 +1,17 @@
-import Link from "next/link";
-import Button from "../common/Button";
-import { usePathname } from "next/navigation";
-import { useCount } from "@/context/CountContext"";
+import React from 'react';
 
 const Header: React.FC = () => {
-
-  const pathname = usePathname()
-  const { count } = useCount()
-
   return (
-    <header className="fixed w-full bg-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center py-6 px-4 md:px-8">
-        <Link href="/" className="text-3xl md:text-5xl font-bold text-gray-800 tracking-tight">
-          Splash App
-        </Link>
-
-        {/* Button Group */}
-        <div className="flex gap-4">
-          {
-            !["/counter-app"].includes(pathname) ? (
-              <>
-              <Button
-            buttonLabel="Sign In"
-            buttonBackgroundColor="red"
-          />
-          <Button
-            buttonLabel="Sign Up"
-            buttonBackgroundColor="blue"
-          /></>
-            ) : (
-              <p className=" font-semibold text-lg">Current count : {count}</p>
-            )
-          }
-
-        </div>
+    <header className="bg-blue-600 text-white py-4 shadow-md">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <h1 className="text-xl font-bold">My App</h1>
+        <nav>
+          <ul className="flex space-x-4">
+            <li><a href="/" className="hover:underline">Home</a></li>
+            <li><a href="/about" className="hover:underline">About</a></li>
+            <li><a href="/contact" className="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
